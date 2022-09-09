@@ -19,14 +19,18 @@ public interface Massive {
         return result;
     }
 
+    default boolean isPartsOfMassiveEqual(int[] mas){
+        int sumFirstPartOfMassive = sumFirstPartOfMassive(mas);
+        int sumSecondPartOfMassive = sumSecondPartOfMassive(mas);
+
+        return sumFirstPartOfMassive == sumSecondPartOfMassive;
+    }
+
     class Even implements Massive {
 
         @Override
         public boolean isEqualPartsOfMassive(int[] mas) {
-            int sumFirstPartOfMassive = sumFirstPartOfMassive(mas);
-            int sumSecondPartOfMassive = sumSecondPartOfMassive(mas);
-
-            return sumFirstPartOfMassive == sumSecondPartOfMassive;
+            return isPartsOfMassiveEqual(mas);
         }
     }
 
@@ -38,19 +42,13 @@ public interface Massive {
             System.arraycopy(mas, 0, newMassive, 0, mas.length);
             newMassive[newMassive.length - 1] = 0;
 
-            int sumFirstPartOfMassive = sumFirstPartOfMassive(newMassive);
-            int sumSecondPartOfMassive = sumSecondPartOfMassive(newMassive);
-
-            boolean result = sumFirstPartOfMassive == sumSecondPartOfMassive;
+            boolean result = isPartsOfMassiveEqual(mas);
 
             if (!result) {
                 System.arraycopy(mas, 0, newMassive, 1, mas.length);
                 newMassive[0] = 0;
 
-                sumFirstPartOfMassive = sumFirstPartOfMassive(newMassive);
-                sumSecondPartOfMassive = sumSecondPartOfMassive(newMassive);
-
-                result = sumFirstPartOfMassive == sumSecondPartOfMassive;
+                result = isPartsOfMassiveEqual(mas);
             }
             return result;
         }
