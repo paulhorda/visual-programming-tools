@@ -1,7 +1,6 @@
 package task2;
 
 public class FizzBuzzGame implements Game {
-
     final String FIZZ = "Fizz";
     final String BUZZ = "Buzz";
 
@@ -14,13 +13,15 @@ public class FizzBuzzGame implements Game {
     }
 
     private String getResultFor(int number) {
-        String result = number+"";
-        if (multipleOf(number, 3)) {
+        String result = number + "";
+        boolean multipleOf3 = multipleOf(number, 3);
+        boolean multipleOf5 = multipleOf(number, 5);
+
+        if (multipleOf3) {
             result = FIZZ;
-            if (multipleOf(number, 5))
+            if (multipleOf5)
                 result += BUZZ;
-        }
-        else if (multipleOf(number, 5))
+        } else if (multipleOf5)
             result = BUZZ;
         return result;
     }
