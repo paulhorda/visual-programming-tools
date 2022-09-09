@@ -1,4 +1,9 @@
-class FizzBuzz implements Game {
+package task2;
+
+public class FizzBuzzGame implements Game {
+
+    final String FIZZ = "Fizz";
+    final String BUZZ = "Buzz";
 
     @Override
     public void play() {
@@ -11,12 +16,12 @@ class FizzBuzz implements Game {
     private String getResultFor(int number) {
         String result = number+"";
         if (multipleOf(number, 3)) {
-            result = "Fizz";
+            result = FIZZ;
             if (multipleOf(number, 5))
-                result += "Buzz";
+                result += BUZZ;
         }
         else if (multipleOf(number, 5))
-            result = "Buzz";
+            result = BUZZ;
         return result;
     }
 
