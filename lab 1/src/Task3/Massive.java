@@ -42,13 +42,13 @@ public interface Massive {
             System.arraycopy(mas, 0, newMassive, 0, mas.length);
             newMassive[newMassive.length - 1] = 0;
 
-            boolean result = isPartsOfMassiveEqual(mas);
+            boolean result = isPartsOfMassiveEqual(newMassive);
 
             if (!result) {
                 System.arraycopy(mas, 0, newMassive, 1, mas.length);
                 newMassive[0] = 0;
 
-                result = isPartsOfMassiveEqual(mas);
+                result = isPartsOfMassiveEqual(newMassive);
             }
             return result;
         }
