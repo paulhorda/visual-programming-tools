@@ -1,3 +1,4 @@
+import Task3.Task3;
 import task1.Task1;
 import task2.FizzBuzzGame;
 
@@ -16,5 +17,11 @@ public class Main {
         FizzBuzzGame fizzBuzz = new FizzBuzzGame();
         System.out.println("\n\nTask 2");
         fizzBuzz.play();
+
+        //Task 3
+        Task3 task3 = new Task3();
+        boolean resultTask3 = task3.isEqualPartsOfMassive(new int[]{343, 12, 22});
+        System.out.println(resultTask3);
+
     }
 }
