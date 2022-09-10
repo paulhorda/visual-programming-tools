@@ -18,7 +18,7 @@ public class Main {
         fizzBuzz.play();*/
         //Task 3
         Task3 task3 = new Task3();
-        boolean resultTask3 = task3.isEqualPartsOfMassive(new int[]{34, 12, 22});
+        boolean resultTask3 = task3.isEqualPartsOfMassive(new int[]{3, 1, 1, 1,2, 2});
         System.out.println("Result of equals first and second parts of massive is "+resultTask3);
 
     }

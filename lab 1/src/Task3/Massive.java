@@ -3,7 +3,12 @@ package Task3;
 import java.util.Arrays;
 
 public interface Massive {
-    boolean isEqualPartsOfMassive(int[] mas);
+    default boolean isEqualPartsOfMassive(int[] mas){
+        int sumFirstPartOfMassive = sumFirstPartOfMassive(mas);
+        int sumSecondPartOfMassive = sumSecondPartOfMassive(mas);
+
+        return sumFirstPartOfMassive == sumSecondPartOfMassive;
+    }
 
     default int sumFirstPartOfMassive(int[] mas) {
         int result = 0;
@@ -19,18 +24,11 @@ public interface Massive {
         return result;
     }
 
-    default boolean isPartsOfMassiveEqual(int[] mas){
-        int sumFirstPartOfMassive = sumFirstPartOfMassive(mas);
-        int sumSecondPartOfMassive = sumSecondPartOfMassive(mas);
-
-        return sumFirstPartOfMassive == sumSecondPartOfMassive;
-    }
-
     class Even implements Massive {
 
         @Override
         public boolean isEqualPartsOfMassive(int[] mas) {
-            return isPartsOfMassiveEqual(mas);
+            return Massive.super.isEqualPartsOfMassive(mas);
         }
     }
 
@@ -42,13 +40,13 @@ public interface Massive {
             System.arraycopy(mas, 0, newMassive, 0, mas.length);
             newMassive[newMassive.length - 1] = 0;
 
-            boolean result = isPartsOfMassiveEqual(newMassive);
+            boolean result = Massive.super.isEqualPartsOfMassive(newMassive);
 
             if (!result) {
                 System.arraycopy(mas, 0, newMassive, 1, mas.length);
                 newMassive[0] = 0;
 
-                result = isPartsOfMassiveEqual(newMassive);
+                result = Massive.super.isEqualPartsOfMassive(newMassive);
             }
             return result;
         }
