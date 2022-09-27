@@ -1,4 +1,4 @@
-package strings;
+package strings.task1;
 
 public class Task1 {
 
