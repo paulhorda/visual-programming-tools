@@ -1,14 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        Item item = new Item("Roman", 1234);
-        System.out.println(item);
-        item.downPriceForPercent(50);
-        System.out.println(item);
-        item.upPriceForPercent(50);
-        System.out.println(item);
-
-
-
         Cart cart = new Cart(6);
         cart.push(new Item("Genry", 234));
         cart.push(new Item("Henru", 6565));
